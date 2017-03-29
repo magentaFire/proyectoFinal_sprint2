@@ -24,7 +24,7 @@ function Lista(nombre){
     var nuevoElemento = document.createElement("div");
     var listaContenedora = document.getElementById("contenedorListas");
     nuevoElemento.innerHTML = this.nombre +
-                              "<button type='button' onclick='borrarLista()'>borrar lista</button>" +
+                              "   <button type='button' onclick='arregloListas[arregloListas.length - 1].borrarLista()'>borrar lista</button>" +
                               "<p style='padding:5px 15px 15px'>" +
                               "<input type='text'>" +
                               " <button type='button' onclick='arregloListas[arregloListas.length-1].nuevaTarea()'>nueva tarea</button>" +
@@ -39,6 +39,9 @@ function Lista(nombre){
     contenedorElementos.appendChild(this.nuevaListaOrdenada);
     nuevoElementoOL.innerText = document.getElementById("contenedorListas").lastChild.lastChild.firstChild.value; //YA SÉ!!!: ES HORRIBLE!!!... pero funciona.... :P
     contenedorElementos.appendChild(nuevoElementoOL);
-
+  };
+  this.borrarLista = function(){
+    document.getElementById("contenedorListas").removeChild(document.getElementById("contenedorListas").firstChild);
+    console.log("holi");
   };
 }
