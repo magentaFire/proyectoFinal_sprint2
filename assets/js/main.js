@@ -1,3 +1,5 @@
+//SIEMPRE HAGO UN DESMADRE!!!!!!!!!!!!!!! D:
+
 var arregloListas = [];
 
 //función principal
@@ -11,6 +13,7 @@ function main(){
 function crearObjeto(){
   var nombreLista = document.getElementById("nombreNuevaLista").value;
   var nuevaLista = new Lista(nombreLista, "lista");
+  document.getElementById("nombreNuevaLista").value = "";
   arregloListas.push(nuevaLista);
 }
 
@@ -21,13 +24,20 @@ function Lista(nombre){
     var nuevoElemento = document.createElement("div");
     var listaContenedora = document.getElementById("contenedorListas");
     nuevoElemento.innerHTML = this.nombre +
+                              "<button type='button' onclick='borrarLista()'>borrar lista</button>" +
                               "<p style='padding:5px 15px 15px'>" +
                               "<input type='text'>" +
-                              "<input type='button' value='nueva tarea' onclick='nuevaTarea()'>" +
+                              " <button type='button' onclick='arregloListas[arregloListas.length-1].nuevaTarea()'>nueva tarea</button>" +
                               "</p>";
     listaContenedora.appendChild(nuevoElemento);
   };
   this.nuevaTarea = function(){
-    
+    var nuevaListaOrdenada = document.createElement("ol");
+    var nuevoElementoOL = document.createElement("li");
+    var contenedorElementos = document.getElementById("contenedorListas").lastChild.lastChild;
+    contenedorElementos.appendChild(nuevaListaOrdenada);
+    nuevoElementoOL.innerText = document.getElementById("contenedorListas").lastChild.lastChild.firstChild.value; //YA SÉ!!!: ES HORRIBLE!!!... pero funciona.... :P
+    contenedorElementos.appendChild(nuevoElementoOL);
+
   };
 }
