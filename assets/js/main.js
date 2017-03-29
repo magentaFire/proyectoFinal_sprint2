@@ -31,11 +31,12 @@ function Lista(nombre){
                               "</p>";
     listaContenedora.appendChild(nuevoElemento);
   };
+  this.nuevaListaOrdenada = document.createElement("ol");
   this.nuevaTarea = function(){
-    var nuevaListaOrdenada = document.createElement("ol");
+    //var nuevaListaOrdenada = document.createElement("ol");
     var nuevoElementoOL = document.createElement("li");
     var contenedorElementos = document.getElementById("contenedorListas").lastChild.lastChild;
-    contenedorElementos.appendChild(nuevaListaOrdenada);
+    contenedorElementos.appendChild(this.nuevaListaOrdenada);
     nuevoElementoOL.innerText = document.getElementById("contenedorListas").lastChild.lastChild.firstChild.value; //YA SÉ!!!: ES HORRIBLE!!!... pero funciona.... :P
     contenedorElementos.appendChild(nuevoElementoOL);
 
